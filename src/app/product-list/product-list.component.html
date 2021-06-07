@@ -1,0 +1,25 @@
+<h2>Products</h2>
+    <!-- *ngFor lo utilice para crear la lista de productos -->
+    <div *ngFor="let product of products">
+         <!-- Dentro de un h3 pondremos la interpoleracion  que nos permitira 
+            representar el valor de la propiedad como texto.-->
+        <h3>
+             <!--Convertiremos nuestros productos a un enlace -->
+            <a [title]="product.name + ' details'">
+                {{ product.name }}
+              </a>
+        </h3>
+          <!--Agregaremos una descripcion a acada elemento
+        *ndIf es para verificar que el producto actual tenga una descripcion -->
+        <p *ngIf="product.description">
+            Description: {{ product.description }}
+        </p>
+          <!--Crearemos un boton para que el usuario pueda comprati rle producto
+        Mandamos a llamar el metodo share() de nuestro archivo ts
+        y click es la accion que va a realizar el boton -->
+          <button (click)="share()">
+            Share
+          </button>
+</div>
+
+
